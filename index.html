@@ -8,6 +8,61 @@
 </head>
 <body>
     <h1>Namaste kartik</h1>
-    <script type="text/javascript" src="test.js"></script>
+    <button>click</button>
+    <!-- <script type="text/javascript" src="test.js"></script> -->
+    <!-- <script type="text/javascript" src="callback.js"></script> -->
+    <!-- <script type="text/javascript" src="test.js"></script> -->
 </body>
+
+<script>
+    const text = "This is KaRTik and my full name is kartik verma and my school name is also kartik";
+    const text2 = "Give_ -100 100%";
+    const wordsdigit = /\w/g;        // only [a-z][A-Z]_[0-9]
+    const onlycharacters = /\W/g;    // only characters
+    const onlyDigits = /\d/g;        // only digits
+    const onlyNoDigits = /\D/g;        // only no digit characters
+    const space = /\s/g;             // for showing spaces
+    const nonspace = /\S/g;  
+    const nonzero = /\w|\W|[^0-9]*/g      
+    const reg = /kartik/g;           //g means in full global or string
+    const reg2 = /kartik/i;          //g means in full global or string
+
+    // source will give string inside regex code
+    console.log(reg.source);
+
+    // Functions to match expressions
+
+    // 1).  exec - This function will return an array for match or null for no match
+    console.log(reg.exec(text));
+    console.log(reg.exec(text));
+    const result = reg2.exec(text);
+    console.log(result.index,result.input)
+
+    // 2) test - This returns true or false
+    const resultTest = reg.test(text);
+    console.log(resultTest);
+    console.log('');
+
+    // 3) match - This returns array or null
+    console.log(text.match(reg)); // if not global then gives first occurance 
+                                  // array and if global then gives whole array with keys
+    console.log('Only wordsdigit',text2.match(wordsdigit));
+    console.log('Only characters /\W/g',text2.match(onlycharacters));
+    console.log('Only digits /\d/g',text2.match(onlyDigits));
+    console.log('Only no digits /\D/g',text2.match(onlyNoDigits));
+    console.log('space /\s/g',text2.match(space));
+    console.log('Non space /\S/g',text2.match(nonzero).toString().replace(/(\,)/g,''));
+    console.log('sfds',nonspace.toString());
+    // 4) search - Returns index of first match or give -1 if not present
+    console.log(text.search(reg))      // gives 35 if not then give -1
+
+    // 5) replace - Returns new replaced string 
+    console.log(text.replace(reg,'Shubham'));
+    const btn = document.querySelector('button');
+    function func() {
+      console.log(this);
+    }
+    const func2 = () => console.log(this);
+    btn.addEventListener('click', func);
+</script>
 </html>
